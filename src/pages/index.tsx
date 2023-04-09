@@ -53,7 +53,7 @@ const Home: NextPage = () => {
             {answer && <p className="font-light">{answer}</p>}
             <button
               onClick={onSubmit}
-              disabled={answer}
+              disabled={answer !== null}
               className="rounded bg-purple-500 p-2"
             >
               Get Response
