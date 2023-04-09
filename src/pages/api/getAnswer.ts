@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { type NextApiRequest, type NextApiResponse } from "next";
 import { type CreateChatCompletionRequest } from "openai";
+import { env } from "../../env.mjs";
 
 export default async (req: NextApiRequest, _: NextApiResponse) => {
   if (!req.url) return;
@@ -22,7 +23,7 @@ export default async (req: NextApiRequest, _: NextApiResponse) => {
     body: JSON.stringify(request),
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? ""}`,
+      Authorization: `Bearer ${env.OPENAI_API_KEY}`,
       "Content-Type": "application/json",
     },
   });
