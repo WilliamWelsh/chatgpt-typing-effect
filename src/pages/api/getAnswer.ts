@@ -3,9 +3,13 @@ import { type NextApiRequest, type NextApiResponse } from "next";
 import { type CreateChatCompletionRequest } from "openai";
 
 export default async (req: NextApiRequest, _: NextApiResponse) => {
+  if (!req.url) return;
+
   const { searchParams } = new URL(req.url);
 
   const question = searchParams.get("question");
+
+  if (!question) return;
 
   const request: CreateChatCompletionRequest = {
     model: "gpt-3.5-turbo",

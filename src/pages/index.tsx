@@ -8,10 +8,10 @@ interface ChunkResponse {
   }[];
 }
 
-const QUESTION = "Who is Eobard Thawne?";
+const QUESTION = "Explain Batman's Origins";
 
 const Home: NextPage = () => {
-  const [answer, setAnswer] = useState<string>(null);
+  const [answer, setAnswer] = useState<string | null>(null);
 
   const onSubmit = () => {
     const eventSource = new EventSource(
