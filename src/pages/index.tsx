@@ -61,7 +61,7 @@ const Home: NextPage = () => {
             {answer && (
               <p
                 ref={ref}
-                className="max-h-[420px] overflow-y-scroll font-light"
+                className="max-h-[200px] overflow-y-scroll font-light"
               >
                 {answer}
               </p>
