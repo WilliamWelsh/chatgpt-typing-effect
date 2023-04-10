@@ -4,13 +4,13 @@ import { type CreateChatCompletionRequest } from "openai";
 import { env } from "../../env.mjs";
 
 export default async (req: NextApiRequest, _: NextApiResponse) => {
-  if (!req.url) return;
+  if (!req.url) throw new Error("No request URL provided");
 
   const { searchParams } = new URL(req.url);
 
   const question = searchParams.get("question");
 
-  if (!question) return;
+  if (!question) throw new Error("No question provided");
 
   const request: CreateChatCompletionRequest = {
     model: "gpt-3.5-turbo",
