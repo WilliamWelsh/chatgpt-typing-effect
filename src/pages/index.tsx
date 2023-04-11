@@ -81,7 +81,7 @@ const Home: NextPage = () => {
             <button
               onClick={onSubmit}
               disabled={answer !== null}
-              className="rounded bg-purple-500 p-2"
+              className="rounded bg-purple-800 p-2"
             >
               Get Response
             </button>
