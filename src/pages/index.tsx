@@ -8,7 +8,7 @@ interface ChunkResponse {
   }[];
 }
 
-const QUESTION = "Explain Batman's Origins";
+const QUESTION = "Explain Batman's Origins Verbosely";
 
 const Home: NextPage = () => {
   const [answer, setAnswer] = useState<string | null>(null);
