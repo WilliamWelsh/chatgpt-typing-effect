@@ -18,3 +18,9 @@ html {
   background: #a855f7;
   border-radius: 15px;
 }
+
+.blink::after {
+  content: "|||";
+  animation: blink 1s infinite;
+  @apply bg-purple-500 text-purple-500;
+}

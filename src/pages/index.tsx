@@ -19,7 +19,11 @@ const Home: NextPage = () => {
     if (ref.current) ref.current.scrollTop = ref.current.scrollHeight;
   };
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const onSubmit = () => {
+    setIsLoading(true);
+
     const eventSource = new EventSource(
       `${window.location.protocol}//${window.location.host}/api/getAnswer?question=${QUESTION}`
     );
@@ -27,6 +31,7 @@ const Home: NextPage = () => {
     eventSource.onmessage = (event) => {
       if (event.data == "[DONE]") {
         eventSource.close();
+        setIsLoading(false);
         return;
       }
 
@@ -61,7 +66,8 @@ const Home: NextPage = () => {
             {answer && (
               <p
                 ref={ref}
-                className="max-h-[200px] overflow-y-scroll font-light"
+                className={`max-h-[200px] overflow-y-scroll font-light ${isLoading ? "blink" : ""
+                  }`}
               >
                 {answer}
               </p>
