@@ -30,6 +30,7 @@ const Home: NextPage = () => {
 
     eventSource.onmessage = (event) => {
       if (event.data == "[DONE]") {
+        console.log("Stream finished.");
         eventSource.close();
         setIsLoading(false);
         return;
@@ -40,6 +41,8 @@ const Home: NextPage = () => {
       const chunk = data.choices[0]?.delta.content;
 
       if (!chunk) return;
+
+      console.log("New token: ", chunk);
 
       setAnswer((prev) => (prev ? prev + chunk : chunk));
 
