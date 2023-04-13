@@ -69,6 +69,9 @@ const Home: NextPage = () => {
             <span className="text-center font-light">
               OpenAI API streaming via Server Sent Events on NextJS Edge Runtime
             </span>
+            <span className="text-center font-light">
+              View token streams in console
+            </span>
           </div>
           <div className="flex flex-col items-center gap-4">
             <p className="text-2xl font-bold">{QUESTION}</p>
